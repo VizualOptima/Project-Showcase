@@ -1,0 +1,105 @@
+---
+title: "Project_1_Bivariate Analysis"
+author: "Francis Mangala"
+date: "2024-03-22"
+output: html_document
+---
+
+```{r}
+library('tidyverse')
+library('ggplot2')
+library('scales')
+```
+
+
+```{r}
+bv_data<- read.csv('diamonds4.csv')
+bv_data%>%head(10)
+```
+We are conducting a study, to analyze the 4C's of diamonds, namely cut, color, clarity, and carat.With the diamond carat being the most popular indicator, we are comparing each C against the price to figure out which one has the strongest effect. 
+
+#### a) Diamond cut compared price.
+
+Diamond cut is a determining factor in a diamond's beauty and sparkle. The figure below shows that, at Blue Nile, most diamonds have either an ideal or a very good cut with some having high listed prices. However,Astor Ideal is the finest cut, but the listed prices are below $50,000.This conclude that, even though the diamond cut affects the price,it is not the major determinant.
+
+```{r}
+ggplot(bv_data, aes(x=cut, y=price))+
+    geom_boxplot(fill="lightblue")+
+    scale_y_continuous(labels = comma)+
+    theme(plot.title = element_text(hjust=0.5))+
+    labs(x="Cut", y="Price ($) ",
+         title="Distribution of cut over Price")
+```
+
+#### b) Diamond color and Diamond Price
+
+According to the diamond color chart, D, E, F (colorless diamonds); G, H, I, and J (near colorless). High-rated diamonds are colorless ,since part of a diamond valuation is determined by the absence of color.
+The figure below supports the claim colorless diamonds have moderate to high listed prices compared to other colors. And as the color decreases, the price tends to follow.Color have a greater impact on price compared to cut, however color F have some diamonds that have a higher price compared to color D,and E.
+This suggest that color have a great impact, but there is another factor among the C's that is more determinant.
+
+```{r}
+ggplot(bv_data, aes(x=color, y=price))+
+    geom_boxplot(fill="lightblue")+
+    scale_y_continuous(labels = comma)+
+    theme(plot.title = element_text(hjust=0.5))+
+    labs(x="Color", y="Price ($)",
+         title="Distribution of color over diamond price")
+```
+
+#### c) Diamond clarity compared to diamond carat
+
+Clarity assesses the imperfections of a diamond on the surface and within. With inclusion being imperfections from within. The picture below shows that Very Slightly Included VS1 and VS2 have high prices, compared to Intentionally Flawless or Very, Very Slightly Included clarity.This suggest that the clarity has a greater impact on the price compared to the cut, but not as much as the color.
+
+```{r}
+ggplot(bv_data, aes(clarity,price))+
+    geom_boxplot(fill="orange")+
+    theme_minimal()+
+    scale_y_continuous(labels = comma)+
+    theme(plot.title = element_text(hjust=0.5))+
+    labs(x="Clarity", y="Price ($)",
+         title="Distribution of clarity over price")
+```
+
+#### d) Diamond carat against Diamond price
+
+After comparing diamond cut, color, and clarity against the price. We are now comparing the diamond carat against the price. In chart below ,the bigger the circle, the higher the carat.Bigger circles are aligned with high prices, and small ones with low prices.This supports Blue Nile claim that diamonds with high carats have high prices.
+
+```{r}
+ggplot(bv_data, aes(x=carat,y=price,size=carat))+
+  geom_point(alpha=0.2)+
+  scale_y_continuous(labels = comma)+
+  labs(x="Carat", y="Price ($)",
+       title="Scatterplot of Diamond carat against the price")
+
+```
+From the chart above, we are adding diamond cut as a color. We can see that the Astor Ideal diamond has a lower price because of its carat size. Also, some ideal-cut diamonds have moderate to high prices affected by the carat.
+
+```{r}
+ggplot(bv_data, aes(x=carat,y=price,size=carat))+
+  geom_point(aes(color=cut),alpha=0.5)+
+  scale_y_continuous(labels = comma)+
+  labs(x="Carat", y="Price ($)",
+       title="Scatterplot of Diamond carat against the price")
+```
+From the chart above, we are changing the color to diamond color. We can see that some diamonds are high-rated colors have high prices, but also low prices.This suggest also that diamond carat has a more significant impact on price, compared to color.  
+
+```{r}
+ggplot(bv_data, aes(x=carat,y=price,size=carat))+
+  geom_point(aes(color=color),alpha=0.5)+
+  scale_y_continuous(labels = comma)+
+  labs(x="Carat", y="Price ($)",
+       title="Scatterplot of Diamond carat against the price")
+```
+From the chart above, we are changing the color to diamond clarity.
+
+The picture below shows that Very Slightly Included VS1 and VS2 have high prices, compared to Intentionally Flawless or Very, Very Slightly Included clarity mostly affected by diamond carat.
+
+```{r}
+ggplot(bv_data, aes(x=carat,y=price,size=carat))+
+  geom_point(aes(color=clarity),alpha=0.5)+
+  scale_y_continuous(labels = comma)+
+  labs(x="Carat", y="Price ($)",
+       title="Scatterplot of Diamond carat against the price")
+```
+
+In conclusion,the the major determining factor is the diamond carat.Through this study, we can rank the C's: Carat, Color, Clarity, and then Cut.
