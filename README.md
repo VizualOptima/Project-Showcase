@@ -1,32 +1,20 @@
-# Repository Name
+# Vizual Optima Projects Showcase
 
 ## Overview
-This dashboard provides a demographic breakdown by country of birth , age , race ,gender , primary language etc. It includes comparative
-tables between countries. 
+This repository includes projects for public showcase. 
 
 ### Contributor(s) :
-Francis Mangala
-### Coding Language :
-Python , Pandas
-### Software Used : 
-Tableau
-### Process :
-  - Downloaded raw data from the World Bank Website
-  - Used python code to clean data and convert file to csv
-  - Uploaded file in Tableau
-  - Created visualizations
+  - Francis Mangala
+  - Vizual Optima LLC
+### Coding / Scripting Language :
+Python (Pandas, Plotly, Numpy, Streamlit), R, SQL, HTML, CSS , 
+### Software(s) / Tools Used : 
+Vizual Studio Code, Tableau , MS Power BI , MS Excel (Power Query), Google Sheets, R Studio , Jupyter Notebook , pgAdmin
 ### Description :
-The main dashboard includes : 
-  - Main Table
-  - Regional Map
-  - Demographics : Country of Birth
-  - Demographics : Race
-  - Demographics : Gender
-  - Demographics : Primary Language
-  - Relevant filters
-### Data Source :
-  - [World Bank Data](https://data.worldbank.org/)
+With a variety of datasets , the contributor created dashboard , and scripts for visualizations and analysis. These are also used 
+for projects showcases.
 ### Useful Links :
+Use this link [Vizual Optima Custom Datasets](https://github.com/VizualOptima/Datasets) to download datasets for practice and learning
 
-### Important Calculations :
+
 
